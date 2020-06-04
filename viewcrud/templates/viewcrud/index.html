@@ -41,7 +41,7 @@
       div.navbar-nav{
           letter-spacing: 6px;
           position: relative;
-          left: 850px;
+          left: 685px;
           font-size: 18px;
       }
 
@@ -81,6 +81,9 @@
           bottom:-100px;
       }
     
+    .btn{
+      word-spacing: 8px;
+    }
 
     </style>
   </head>
@@ -95,7 +98,10 @@
     <h1 class="cover-heading">나의 일기장입니다.</h1>
     <p class="lead">놀러와줘서 고마워요 :) <br>
     저의 일기를 보고 가세요.</p><br>
+    <div class=btn>
       <a href="{% url 'home' %}" class="btn btn-lg btn-secondary">작성된 일기 보러가기! </a>
+      <a href="{% url 'portfolio' %}" class="btn btn-lg btn-secondary">APP DESIGN 보러가기! </a>
+    </div>
     </main>
 
   <footer class="mastfoot mt-auto">

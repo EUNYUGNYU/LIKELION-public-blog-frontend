@@ -30,8 +30,6 @@
             height: 1000px;
           }
     
-          @media (min-width: 768px) {
-          }
     
           a.nav_name{
               color:white;
@@ -42,7 +40,7 @@
           div.navbar-nav{
               letter-spacing: 6px;
               position: relative;
-              left: 850px;
+              left: 685px;
               font-size: 18px;
           }
 
@@ -95,22 +93,12 @@
           <p> 이전에 <span>EUNYU</span>에게 어떤 일이 있었을까요? </p>
           <br>
           <p>오늘의 일기를 작성해보세요!</p>
-          <div class=main_button>
+          <div class= main_button>
             <a href="{% url 'newblog' %}" class="btn btn-danger">일기쓰기</a>
             <a href="{% url 'welcome' %}" class="btn btn-danger">처음으로</a>
           </div>
           <hr>
           </div>
-
-      <div class="img_girl">
-          {% for portfolio in portfolios.all %} <!--- 안나오는 부분--->
-            <img class="girl_image" src="{{ portfolio.image.url }}" alt=" girl" height: 600px; > 
-            <div class="image_wirte">
-              <h3>{{ portfolio.title }}</h3>
-              <p>{{ portfolio.description }}</p>
-            </div>
-            {% endfor %}
-      </div>
 
     <!-- 블로그 글을 띄우는 부분-->
     <main>

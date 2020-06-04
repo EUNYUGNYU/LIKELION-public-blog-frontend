@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.utils import timezone
 from .models import Blog
 from .forms import NewBlog
-from .models import Portfolio
 
 def welcome(request):
     return render(request,'viewcrud/index.html')
@@ -48,8 +47,4 @@ def delete(request,pk):
     blog.delete()
     return redirect('home')
 
-
-def portfolio(request):
-    portfolios = Portfolio.objects
-    return render(request, 'viewcrud/funccrud.html', {'portfolios': portfolios})
 
