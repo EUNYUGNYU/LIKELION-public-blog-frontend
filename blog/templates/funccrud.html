@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <body>
+        <div class="writehead">
+          <p> <span>모두</span>의 글을 감상해보세요.</p>
+          <div class= main_button>
+            <a href="{% url 'newblog' %}" class="btn btn-danger">upload</a>
+            <a href="{% url 'welcome' %}" class="btn btn-danger">go to home</a>
+          </div>
+          </div>
+
+    <!-- 블로그 글을 띄우는 부분-->
+    <main>
+
+        {% for blog in posts %} <!-- 순회 대상 posts로 변경하기 (전체는 기존처럼 blogs)-->
+
+        <h5>{{blog.title}}</h5>
+        {% if blog.photo %}
+        <img src="{{blog.photo.url}}" height="300px">
+        {% endif %}
+        <h6>{{blog.pub_date}}</h6>
+        <p>{{blog.body}}</p>
+        </form>
+        <a href="{% url 'update' blog.id%}" class="btn2 btn-outline-danger">수정</a>
+        <a href="{% url 'delete' blog.id%}" class="btn2 btn-outline-danger">삭제</a>
+        <hr>
+         {% endfor %}
+    </div>   
+    </main>
+    </body>
+    
+
+<footer class="mastfoot mt-auto">
+
+{%if posts.has_previous%}
+<a href="?page=1">First</a>
+<span>{{posts.number}}</span>
+<span>of</span>
+<span>{{posts.paginator.num_pages}}</span>
+<a href="?page={{posts.previous_page_number}}">Previous</a>
+{%endif%}
+
+
+{%if posts.has_next%}
+<a href="?page={{posts.next_page_number}}">Next</a>
+<span>{{posts.number}}</span>
+<span>of</span>
+<span>{{posts.paginator.num_pages}}</span>
+<a href="?page={{posts.paginator.num_pages}}">Last</a>
+{%endif%}
+
+{% endblock %}
+</footer>
+</html>
+
+

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<body>
+    <div class="write">
+        <p>글을 작성해주세요.</p>
+    </div>
+    <form method="POST" enctype="multipart/form-data"> <!--유저가 파일 업로드 가능-->
+        {% csrf_token %} 
+        <table>
+        {{form.as_table}}
+        <br>
+        <div class="blockgroup">
+            <input type="submit" class="btn btn-info" value="제출하기">
+            <input type="reset" class="btn btn-info" value="다시쓰기">
+            <input type="button" class="btn btn-info" value="이전으로" onclick="history.back(1)">
+        </div>
+        </table>
+    </form>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <hr>
+        <p>@2020.05.28 Likelion 서은유</p>
+      </div>
+  </footer>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.0.1">
+        <title>eunyu bblog</title>
+    
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+        <style>
+          @font-face { font-family: 'RIDIBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+          
+          body{
+            background-image: url(https://i.pinimg.com/originals/bf/95/f9/bf95f997e1641314be464c530b4a8825.jpg);
+            background-repeat : no-repeat;  
+            background-size : cover;
+            text-align: center;
+            background-color: black;
+            font-weight: bold;
+            color:black;
+            letter-spacing: 0.2em;
+            font-family:'RIDIBatang';
+            font-size:20px;
+            line-height: 25px;
+            text-shadow: 0.5px 0.5px whitesmoke;
+          }    
+
+          .blockgroup{
+            position: relative;
+          }
+           
+          footer{
+            color:darkgrey;
+            font-size:18px;
+            text-shadow: 0px 0px;
+            position: relative;
+            line-height: 40px;
+          }
+
+          .writehead{
+            margin-top: 2%;
+            color:darksalmon;
+            text-shadow: 0.5px 0.5px whitesmoke;
+
+          }
+          
+          .btn{
+            font-size: 18px;
+            position: relative;
+            top: 150px;
+            left:170px;
+          }
+
+          .main_button{
+ 
+          }
+
+          #sidebar-wrapper{
+            width:200px;
+            height:900px;
+          }
+          .sidebar-heading{
+            height:110px;
+            position: relative;
+            top: 50px;
+          }
+          .sidebar-heading2{
+            height:110px;
+            position: relative;
+            top:30px;
+          }
+
+
+          .mainima{
+            width:260px;
+            position: relative;
+            top: 250px;
+            left: 700px;
+          }
+
+          .indextext{
+            position: relative;
+            top: 250px;
+            left: 340px;
+          }
+
+      table{
+      position: relative;
+      top: 80px;
+      }
+
+      .blockgroup{
+        position: relative;
+        top: 450px;
+        right: 130px;
+      }
+      
+      footer{
+        color:darkgrey;
+        font-size:18px;
+        text-shadow: 0px 0px;
+        position: relative;
+        line-height: 40px;
+      }
+
+      .write{
+          position: relative;
+          margin-top: 50px;
+          left: 420px;
+      }
+
+      
+      .writehead{
+            margin-top: 5%;
+            margin-left: 5%;
+            margin-right: 10%;
+            color:darksalmon;
+            text-shadow: 0.5px 0.5px whitesmoke;
+
+          }
+      .main_button{
+        position: relative;
+        bottom: 120px;
+        right: 170px;
+      }
+
+          span{
+            font-size: 30px;
+            color:darkgrey;
+            letter-spacing: 0.2em;
+            font-weight: 800;
+          }
+
+          .logname{
+            color:tomato;
+            margin-top: 10%;
+          }
+
+          .loginall{
+            position: relative;
+            left:420px;
+            margin-top:10%;
+          }
+        </style>
+    </head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">우리의 BLOG </div>
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'welcome' %}">home</a>
+          <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">view</a>
+          <a href="{% url 'newblog' %}" class="list-group-item list-group-item-action bg-light">upload</a>
+        </div>
+
+        <div class="login">
+        {% if user.is_authenticated %}
+        <div class="sidebar-heading2"><p>환영합니다. {{ user.username }} 님!</p></div>
+                <a class="list-group-item list-group-item-action bg-light" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %} <input type="hidden"/>
+                </form>
+            </div>
+            </div>
+        {% else %}
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'signup' %}">Signup</a>
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'login' %}">Login</a>
+        {% endif %}
+        </div>
+      </div>
+      </div>
+      {% block content %}
+      {% endblock %}
+
+

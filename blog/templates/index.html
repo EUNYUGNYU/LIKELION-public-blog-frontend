@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<body>
+  {% load static %}
+  <main role="main" class="inner cover">
+    <div class="indextext">
+    <h1 class="cover-heading">우리의 블로그 ♪</h1>
+    <p class="lead">가입 후 자유롭게 글을 남겨보세요.<br>
+    모두의 글을 감상해보세요!!</p><br>
+    </div>
+    <div class=btn>
+      <a href="{% url 'home' %}" class="btn btn-lg btn-secondary">모두의 작성글 보러가기! </a>
+    </div>
+      <div class="img1">
+        <img class="mainima" src="{% static 'hello.png' %}" alt="memo">
+      </div>
+    </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <hr>
+      <p>@2020.05.28 Likelion 서은유</p>
+    </div>
+  </footer>
+</div>
+</body>
+{% endblock %}
+</html>
+
+
+
+
